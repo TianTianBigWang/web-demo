@@ -7,6 +7,7 @@ ADD . .
 RUN GOOS=linux CGO_ENABLED=0 go build -ldflags="-s -w" -installsuffix cgo -o app main.go
 
 FROM alpine
+ENV NAME=dynasty
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" > /etc/timezone
 COPY --from=builder /work/app /work/app
