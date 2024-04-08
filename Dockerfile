@@ -11,6 +11,6 @@ ENV NAME=dynasty
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" > /etc/timezone
 COPY --from=builder /work/app /work/app
-COPY --from=builder /work/config /work/config
+#COPY --from=builder /work/config /work/config
 WORKDIR /work
 CMD ["./app"]
